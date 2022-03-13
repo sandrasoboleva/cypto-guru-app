@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 
 mongoose
   .connect(
-    "mongodb+srv://Sandra:Sandra@classtest.ffb79.mongodb.net/Crypto-Guru?retryWrites=true&w=majority",
+    "mongodb+srv://Sandra:Sandra@classtest.ffb79.mongodb.net/crypto-guru-app?retryWrites=true&w=majority",
     { useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
