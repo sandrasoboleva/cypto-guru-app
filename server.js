@@ -12,7 +12,7 @@ const profile = require("./routes/api/profile");
 const trade = require("./routes/api/trade");
 
 
-let whitelist = ['https://crypto-guru.herokuapp.com', 'http://localhost:3000', "http://localhost:5000"]
+let whitelist = ['https://crypto-guru-app.herokuapp.com', 'http://localhost:3000', "http://localhost:5000"]
 let corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (whitelist.indexOf(req.header('Origin')) !== -1) {

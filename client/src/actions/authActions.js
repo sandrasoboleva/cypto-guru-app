@@ -13,7 +13,7 @@ import { clearTradeObject, getCurrentPortfolio } from "./tradeActions";
 export const registerUser = (userData, history) => async dispatch => {
   try {
     const res = await axios.post(
-      "https://crypto-guru.herokuapp.com/api/users/register",
+      "https://crypto-guru-app.herokuapp.com/api/users/register",
       userData,
       {
         headers: {
@@ -43,7 +43,7 @@ export const registerUser = (userData, history) => async dispatch => {
 export const loginUser = userData => async dispatch => {
   try {
     const res = await axios.post(
-      "https://crypto-guru.herokuapp.com/api/users/login",
+      "https://crypto-guru-app.herokuapp.com/api/users/login",
       userData,
       {
         headers: {
@@ -104,7 +104,7 @@ export const updatePortfolio = (
     if (authStatus) {
       await axios
         .post(
-          "https://crypto-guru.herokuapp.com/api/users/update-portfolio",
+          "https://crypto-guru-app.herokuapp.com/api/users/update-portfolio",
           portfolioData,
           {
             headers: {

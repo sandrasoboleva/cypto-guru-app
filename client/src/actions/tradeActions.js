@@ -124,7 +124,7 @@ export const addCoin = selectedCoin => dispatch => {
   if (isAuthenticated) {
     axios
       .post(
-        "https://crypto-guru.herokuapp.com/api/trade/update-currency-array",
+        "https://crypto-guru-app.herokuapp.com/api/trade/update-currency-array",
         newArray
       )
       .then(res =>
@@ -172,7 +172,7 @@ export const fetchDataForNewCoins = coin => dispatch => {
     if (isAuthenticated) {
       axios
         .post(
-          "https://crypto-guru.herokuapp.com/api/trade/update-my-coins-array",
+          "https://crypto-guru-app.herokuapp.com/api/trade/update-my-coins-array",
           coinArrayCopy
         )
         .then(res =>
@@ -217,7 +217,7 @@ export const fetchDataForNewCoins = coin => dispatch => {
         if (isAuthenticated) {
           axios
             .post(
-              "https://crypto-guru.herokuapp.com/api/trade/update-my-coins-array",
+              "https://crypto-guru-app.herokuapp.com/api/trade/update-my-coins-array",
               coinArrayCopy
             )
             .then(res => console.log(res.data))
@@ -249,7 +249,7 @@ export const deleteCoin = name => dispatch => {
   if (isAuthenticated) {
     axios
       .post(
-        "https://crypto-guru.herokuapp.com/api/trade/update-currency-array",
+        "https://crypto-guru-app.herokuapp.com/api/trade/update-currency-array",
         newCurrencyArray
       )
       .then(res =>
@@ -262,7 +262,7 @@ export const deleteCoin = name => dispatch => {
 
     axios
       .post(
-        "https://crypto-guru.herokuapp.com/api/trade/update-my-coins-array",
+        "https://crypto-guru-app.herokuapp.com/api/trade/update-my-coins-array",
         newMyCoinsArray
       )
       .then(res =>
@@ -304,7 +304,7 @@ export const tradeCoins = (
   if (isAuthenticated) {
     axios
       .post(
-        "https://crypto-guru.herokuapp.com/api/trade/update-my-coins-array",
+        "https://crypto-guru-app.herokuapp.com/api/trade/update-my-coins-array",
         coinArrayCopy
       )
       .then(res =>
@@ -340,7 +340,7 @@ export const updateWallet = myCoins => dispatch => {
 
   if (isAuthenticated) {
     axios
-      .post("https://crypto-guru.herokuapp.com/api/trade/update-wallet", {
+      .post("https://crypto-guru-app.herokuapp.com/api/trade/update-wallet", {
         value: walletValue,
         walletDifference: walletDifferenceCopy
       })
@@ -386,7 +386,7 @@ export const checkWalletStatus = () => dispatch => {
   if (isAuthenticated) {
     axios
       .post(
-        "https://crypto-guru.herokuapp.com/api/trade/update-wallet-value-difference",
+        "https://crypto-guru-app.herokuapp.com/api/trade/update-wallet-value-difference",
         {
           value: difference
         }
@@ -431,7 +431,7 @@ export const updateRatesEvery10Sec = () => dispatch => {
         if (isAuthenticated) {
           axios
             .post(
-              "https://crypto-guru.herokuapp.com/api/trade/update-my-coins-array",
+              "https://crypto-guru-app.herokuapp.com/api/trade/update-my-coins-array",
               arrayWithUpdatedRates
             )
             .then(res =>
@@ -461,7 +461,7 @@ export const setPortfolioLoading = () => {
 
 export const createPortfolio = () => dispatch => {
   axios
-    .post("https://crypto-guru.herokuapp.com/api/trade/create-portfolio")
+    .post("https://crypto-guru-app.herokuapp.com/api/trade/create-portfolio")
     .then(res => dispatch(console.log(res)))
     .catch(err => console.log(err));
 };
@@ -469,7 +469,7 @@ export const createPortfolio = () => dispatch => {
 export const getCurrentPortfolio = () => dispatch => {
   dispatch(setPortfolioLoading());
   axios
-    .get("https://crypto-guru.herokuapp.com/api/trade")
+    .get("https://crypto-guru-app.herokuapp.com/api/trade")
     .then(res =>
       dispatch({
         type: GET_PORTFOLIO,

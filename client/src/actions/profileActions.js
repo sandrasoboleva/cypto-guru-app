@@ -13,7 +13,7 @@ export const getCurrentProfile = () => async dispatch => {
   try {
     dispatch(setProfileLoading());
     const res = await axios.get(
-      "https://crypto-guru.herokuapp.com/api/profile",
+      "https://crypto-guru-app.herokuapp.com/api/profile",
       {
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const clearCurrentProfile = () => {
 export const createProfile = profileData => async dispatch => {
   try {
     const res = await axios.post(
-      "https://crypto-guru.herokuapp.com/api/profile",
+      "https://crypto-guru-app.herokuapp.com/api/profile",
       profileData,
       {
         headers: {
@@ -81,7 +81,7 @@ export const createProfile = profileData => async dispatch => {
 export const deleteAccount = () => dispatch => {
   if (window.confirm("Are you sure? This cannot be undone!")) {
     axios
-      .delete("https://crypto-guru.herokuapp.com/api/profile")
+      .delete("https://crypto-guru-app.herokuapp.com/api/profile")
       .then(res =>
         dispatch({
           type: SET_CURRENT_USER,
