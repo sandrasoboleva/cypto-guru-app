@@ -15,7 +15,7 @@ const trade = require("./routes/api/trade");
 let whitelist = ['https://crypto-guru-app.herokuapp.com', 'http://localhost:3000', "http://localhost:5000"]
 let corsOptionsDelegate = function (req, callback) {
   let corsOptions;
-  if (whitelist.indexOf(req.header('Origin')) !== -1) {
+  if (whitelist.indexOf(req.header('Access-Control-Allow-Origin')) !== -1) {
     corsOptions = { origin: true }
   }else{
     corsOptions = { origin: false }
