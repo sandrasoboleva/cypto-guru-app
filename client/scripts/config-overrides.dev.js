@@ -1,7 +1,7 @@
 // const path = require("path");
 const LessAutoprefix = require("less-plugin-autoprefix");
 const autoprefix = new LessAutoprefix({
-  browsers: ["iOS 7m", "last 2 versions", "Firefox > 20", "ie 6-8"]
+  browsers: ["iOS 7", "last 2 versions", "Firefox > 20", "ie 6-8"]
 });
 
 module.exports = function(config) {

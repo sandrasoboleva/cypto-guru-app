@@ -12,21 +12,17 @@ const profile = require("./routes/api/profile");
 const trade = require("./routes/api/trade");
 
 
-// let whitelist = ['https://crypto-guru-app.herokuapp.com', 'http://localhost:3000', "http://localhost:5000"]
-// let corsOptionsDelegate = function (req, callback) {
-//   let corsOptions;
-//   if (whitelist.indexOf(req.header('Origin')) !== -1) {
-//     corsOptions = { origin: true }
-//   }else{
-//     corsOptions = { origin: false }
-//   }
-//   callback(null, corsOptions)
-// }
+let whitelist = ['https://crypto-guru-app.herokuapp.com', 'http://localhost:3000', "http://localhost:5000"]
+let corsOptionsDelegate = function (req, callback) {
+  let corsOptions;
+  if (whitelist.indexOf(req.header('Origin')) !== -1) {
+    corsOptions = { origin: true }
+  }else{
+    corsOptions = { origin: false }
+  }
+  callback(null, corsOptions)
+}
 
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://crypto-guru-app.herokuapp.com');
-  next();
-});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -46,13 +42,9 @@ app.use(passport.initialize());
 
 require("./config/passport.js")(passport);
 
-// app.use("/api/users", cors(corsOptionsDelegate), users);
-// app.use("/api/profile",cors(corsOptionsDelegate), profile);
-// app.use("/api/trade",cors(corsOptionsDelegate), trade);
-
-app.use("/api/users");
-app.use("/api/profile");
-app.use("/api/trade");
+app.use("/api/users", cors(corsOptionsDelegate), users);
+app.use("/api/profile",cors(corsOptionsDelegate), profile);
+app.use("/api/trade",cors(corsOptionsDelegate), trade);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
